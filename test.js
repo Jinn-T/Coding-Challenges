@@ -323,28 +323,30 @@
 
 const longestPalindrome = (word) => {
     const wordArr = word.split("");
-    let last = word.length - 1;
+    let last = word.length;
     let palindrome = [];
 
-    for (let i = 0; i < word.length; i++) {
-        for (let j = 0; j < last; j++) {
-            let word2 = [];
-            if (!wordArr[i - j] || !wordArr[i + j]) {
-                continue;
+    for (let i = 0; i < last; i++) {
+        let word2 = `${wordArr[i]}`;
+        for (let j = 1; j < last; j++) {
+            if (wordArr[i - j] === undefined || wordArr[i + j] === undefined) {
+                console.log("hasworked");
+                break;
             }
             if (wordArr[i - j] === wordArr[i + j]) {
-                console.log("1st", wordArr[i - j]);
-                console.log("2nd", wordArr[i + j]);
-
-                word2.push(wordArr[i + j]);
-                word2.unshift(wordArr[i - j]);
-            }
-            console.log(word2);
+                word2 = word2 + wordArr[i + j];
+                word2 = wordArr[i - j] + word2;
+            } else break;
         }
-        // word2.length > 0 ? palindrome.push(word2) : console.log("hi");
+        word2.length > 1 ? palindrome.push(word2) : console.log("hi");
     }
-    console.log(palindrome);
+    console.log("palindrom", palindrome);
 
-    // then do a .length check to find longest
+    // return largest palindrom in string
+    palindromeLength = palindrome.map((n) => n.length);
+    const max = Math.max(...palindromeLength);
+    console.log(max);
+    // return total number of palindromes in string
 };
-longestPalindrome("babad");
+
+longestPalindrome("babamadamdfaaaaracecaraaafsdfasracecar");
