@@ -73,3 +73,18 @@ function order(words) {
 }
 
 console.log(order("is2 Thi1s T4est 3a"));
+
+// clever solution
+// \d is the digit character class
+// .match, a method that retrives the results of a matching string against a regex expression
+
+function order(words) {
+    return words
+        .split(" ")
+        .sort((a, b) => {
+            return a.match(/\d/) - b.match(/\d/);
+        })
+        .join(" ");
+}
+
+console.log("order2:", order("is2 Thi1s T4est 3a"));
