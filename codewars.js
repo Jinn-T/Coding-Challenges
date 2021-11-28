@@ -40,3 +40,36 @@ function decode(message) {
     return decode.join("").replace(/-/g, " ");
 }
 console.log(decode("hello"));
+
+function order(words) {
+    // split word
+    // remove alphanumeric
+    // sort numbers
+    // useindexof to push into new array
+    // .join
+    let orderArr = [];
+
+    const wordArr = words.split(" ");
+    console.log("wordArr:", wordArr);
+
+    const newArr = [...wordArr].map((w) => {
+        return w.replace(/[a-zA-Z]/g, "");
+    });
+    console.log("newArr:", newArr);
+
+    const sorted = [...newArr].sort((a, b) => a - b);
+    console.log("sorted:", sorted);
+
+    console.log("test1:", newArr.indexOf("2"));
+
+    sorted.map((w) => {
+        console.log(newArr.indexOf(w));
+        orderArr.push(wordArr[newArr.indexOf(w)]);
+    });
+
+    console.log("orderArr:", orderArr);
+
+    return orderArr.join(" ");
+}
+
+console.log(order("is2 Thi1s T4est 3a"));
