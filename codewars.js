@@ -87,4 +87,4 @@ function order(words) {
         .join(" ");
 }
 
-console.log("order2:", order("is2 Thi1s T4est 3a"));
+console.log("order2:", order("is2 Thi1s T4est 3at"));
