@@ -108,3 +108,25 @@ function twoSum(numbers, target) {
 }
 
 console.log(twoSum([1, 2, 3], 4));
+
+function digital_root(n) {
+    // ...
+    const newArr = n.toString().split("");
+    console.log(newArr);
+
+    let numArr = newArr.map((n) => (n = parseInt(n)));
+    console.log(numArr);
+
+    let sumCounter = 11;
+
+    while (sumCounter > 10) {
+        let sum = numArr.reduce((acc, num) => {
+            return acc + num;
+        });
+        numArr = [sum];
+        sumCounter = sum;
+    }
+
+    console.log(sumCounter);
+    return sum;
+}
