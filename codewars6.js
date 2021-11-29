@@ -88,3 +88,23 @@ function order(words) {
 }
 
 console.log("order2:", order("is2 Thi1s T4est 3at"));
+
+// two sum
+
+function twoSum(numbers, target) {
+    // indexOf()
+
+    let valid = [];
+
+    console.log(numbers);
+    console.log(target);
+
+    numbers.sort((a, b) => {
+        if (a + b === target) {
+            valid.push(a, b);
+        }
+    });
+    console.log("valid:", valid);
+}
+
+console.log(twoSum([1, 2, 3], 4));
