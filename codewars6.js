@@ -109,6 +109,39 @@ function twoSum(numbers, target) {
 
 console.log(twoSum([1, 2, 3], 4));
 
+<<<<<<< HEAD
+// sum of digits/digital Root
+
+function digital_root(n) {
+    let num = n;
+    let sumCounter = num;
+
+    while (sumCounter >= 10) {
+        const newArr = num.toString().split("");
+        console.log(newArr);
+
+        let numArr = newArr.map((n) => (n = parseInt(n)));
+        console.log(numArr);
+
+        let sum = numArr.reduce((acc, num) => {
+            return acc + num;
+        });
+        num = sum;
+        sumCounter = sum;
+        console.log(sumCounter);
+    }
+
+    console.log("sumcounter:", sumCounter);
+    return sumCounter;
+}
+
+console.log(digital_root(456));
+
+// clever solution:
+
+function digital_root(n) {
+    return ((n - 1) % 9) + 1;
+=======
 function digital_root(n) {
     // ...
     const newArr = n.toString().split("");
@@ -129,4 +162,5 @@ function digital_root(n) {
 
     console.log(sumCounter);
     return sum;
+>>>>>>> main
 }
