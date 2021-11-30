@@ -191,7 +191,7 @@ function incrementString2(string) {
     return string.replace(/\d*$/, (match) => {
         if (!match) return "1";
         const numStr = String(parseInt(match) + 1);
-        const diff = match.length - numStr.length;
+        const diff = match.length - numStr.length; // finding the difference so we can add the 0 digits back to number
         return diff > 0 ? "0".repeat(diff) + numStr : numStr;
     });
 }
