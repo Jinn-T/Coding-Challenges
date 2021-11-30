@@ -184,7 +184,7 @@ function incrementString(string) {
 
 console.log("incrementString:", incrementString("foo"));
 
-// SOLUTION
+// SOLUTION // https://www.youtube.com/watch?v=DAIZ-0y2F8I
 
 function incrementString2(string) {
     // select '\d' digits 0 or more and pass that as $ = 'match', second parameter(which is the newSubStr replacemen): we pass a function instead of a value
