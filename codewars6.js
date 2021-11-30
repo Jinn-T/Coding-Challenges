@@ -109,7 +109,6 @@ function twoSum(numbers, target) {
 
 console.log(twoSum([1, 2, 3], 4));
 
-<<<<<<< HEAD
 // sum of digits/digital Root
 
 function digital_root(n) {
@@ -141,26 +140,60 @@ console.log(digital_root(456));
 
 function digital_root(n) {
     return ((n - 1) % 9) + 1;
-=======
-function digital_root(n) {
-    // ...
-    const newArr = n.toString().split("");
-    console.log(newArr);
+}
 
-    let numArr = newArr.map((n) => (n = parseInt(n)));
-    console.log(numArr);
+// STRING INCREMENTOR
 
-    let sumCounter = 11;
-
-    while (sumCounter > 10) {
-        let sum = numArr.reduce((acc, num) => {
-            return acc + num;
-        });
-        numArr = [sum];
-        sumCounter = sum;
+//ATTEMPT
+function incrementString(string) {
+    // return incrementedString
+    if (string === "") {
+        return "1";
     }
 
-    console.log(sumCounter);
-    return sum;
->>>>>>> main
+    //   if (!string.match(/[a-z]+/gi)){
+    //     let test = parseInt(string) + 1;
+    //     return test.toString();
+    //   }
+
+    const newStr = string.match(/[a-z]+|[^a-z]+/gi);
+    console.log("newStr:", newStr);
+
+    // if (string.match(/[\W]+/gi)) {
+    //     newStr[0] = newStr[0] + 1;
+    //     return newStr[0];
+    // }
+
+    if (newStr.length === 1) {
+        const newNum = parseInt(newStr[0]) + 1;
+        return newNum.toString();
+    }
+
+    const test = newStr.map((x) => {
+        if (x.match(/\d+/g)) {
+            const num = parseInt(x) + 1;
+            const diff = x.length - num.toString().length;
+            return diff > 0 ? "0".repeat(diff) + num.toString() : num;
+        } else return x;
+    });
+    console.log("newstr2", newStr);
+    console.log("test:", test);
+    console.log("testJoin:", test.join(""));
+    return test.join("");
 }
+
+console.log("incrementString:", incrementString("foo"));
+
+// SOLUTION
+
+function incrementString2(string) {
+    // select '\d' digits 0 or more and pass that as $ = 'match', second parameter(which is the newSubStr replacemen): we pass a function instead of a value
+    return string.replace(/\d*$/, (match) => {
+        if (!match) return "1";
+        const numStr = String(parseInt(match) + 1);
+        const diff = match.length - numStr.length;
+        return diff > 0 ? "0".repeat(diff) + numStr : numStr;
+    });
+}
+
+console.log("incrementString2:", incrementString2("foo"));
