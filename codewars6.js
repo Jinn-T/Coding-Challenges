@@ -197,3 +197,18 @@ function incrementString2(string) {
 }
 
 console.log("incrementString2:", incrementString2("foo"));
+
+// statistics for an athletic association
+
+function stat(strg) {
+    console.log("strg:", strg);
+
+    const newArr = strg.split(",").map((x) => {
+        return x.split("|");
+    });
+    console.log("newArr:", newArr);
+}
+
+function range(arr) {}
+
+console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
