@@ -207,8 +207,32 @@ function stat(strg) {
         return x.split("|");
     });
     console.log("newArr:", newArr);
+
+    let avg = [0, 0, 0];
+
+    for (let i = 0; i < newArr.length; i++) {
+        for (let j = 0; j < newArr[1].length; j++) {
+            let num = parseInt(newArr[i][j]);
+            console.log(num);
+            avg[j] += num;
+        }
+    }
+    console.log(avg);
 }
 
 function range(arr) {}
+
+function average(arr) {
+    let avg = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[1].length; i++) {
+            avg.push(arr[i][j]);
+        }
+    }
+    console.log(avg);
+
+    return avg;
+}
 
 console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
