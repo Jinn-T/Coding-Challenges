@@ -239,3 +239,24 @@ const timeToSecs = (timeArr) => {
     // /.+(?<=[\.])/ positive look behind
 };
 console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
+
+function lonelyinteger(a) {
+    // Write your code here
+    const sortedArr = a.sort((a, b) => a - b);
+    console.log(sortedArr);
+
+    for (let i = 0; i < sortedArr.length; i++) {
+        if (sortedArr[i] === sortedArr[i + 1]) {
+            continue;
+        } else if (
+            sortedArr.includes(sortedArr[i]) &&
+            sortedArr.includes(sortedArr[i + 1])
+        ) {
+            continue;
+        } else {
+            return sortedArr.includes(sortedArr[i])
+                ? sortedArr[i]
+                : sortedArr[i + 1];
+        }
+    }
+}
