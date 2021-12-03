@@ -208,31 +208,34 @@ function stat(strg) {
     });
     console.log("newArr:", newArr);
 
-    let avg = [0, 0, 0];
+    let total = [0, 0, 0];
 
     for (let i = 0; i < newArr.length; i++) {
         for (let j = 0; j < newArr[1].length; j++) {
             let num = parseInt(newArr[i][j]);
             console.log(num);
-            avg[j] += num;
+            total[j] += num;
         }
     }
-    console.log(avg);
+    console.log("total:", total);
+    console.log("timeToSecs:", timeToSecs(total));
 }
 
-function range(arr) {}
+// convert [ 6, 128, 146 ] to seconds
+// 29426s / 5 to get average = 5885.2
+// 5885.2 /60 for mins = 98.086666
+// ANS / 60 = 1.63477... -> gives us hours
+// take the remainding decimal ANS - 1 = 0.63477 ->  * 60 to get mins = 0.63477 * 60 = 38.08666mins
+//again take the remainding decimal ANS - 38 = 0.08666 -> *60 to get secs = 5.2s
 
-function average(arr) {
-    let avg = [];
+const timeToSecs = (timeArr) => {
+    let seconds = 0;
 
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr[1].length; i++) {
-            avg.push(arr[i][j]);
-        }
-    }
-    console.log(avg);
+    seconds += timeArr[0] * 60 * 60;
+    seconds += timeArr[1] * 60;
+    seconds += timeArr[2];
+    return seconds;
 
-    return avg;
-}
-
+    // /.+(?<=[\.])/ positive look behind
+};
 console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
