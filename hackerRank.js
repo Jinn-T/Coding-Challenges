@@ -42,3 +42,31 @@ function lonelyinteger(a) {
 
     return unique[0];
 }
+
+function gridChallenge(grid) {
+    // console.log(grid);
+    const sortedArr = grid.map((a) => {
+        return a.split("").sort();
+    });
+    // console.log(sortedArr);
+
+    let counter = 0;
+    const yes = "YES";
+    const no = "NO";
+
+    for (let i = 0; i < sortedArr[0].length; i++) {
+        // console.log("break")
+        for (let j = 0; j < sortedArr.length - 1; j++) {
+            // console.log("test",sortedArr[j][i])
+            if (
+                sortedArr[j][i].charCodeAt(0) >
+                sortedArr[j + 1][i].charCodeAt(0)
+            ) {
+                counter += 1;
+            }
+        }
+    }
+    // console.log("counter",counter);
+
+    return counter > 0 ? no : yes;
+}
