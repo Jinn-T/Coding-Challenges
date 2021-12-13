@@ -239,3 +239,80 @@ const timeToSecs = (timeArr) => {
     // /.+(?<=[\.])/ positive look behind
 };
 console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"));
+
+// strongest even number in an interval
+
+function strongestEven(n, m) {
+    console.log(n, m);
+
+    const nmArr = numberInt(n, m);
+    console.log("nmArr", nmArr);
+    let countArr = [];
+
+    for (let i = 0; i < nmArr.length; i++) {
+        let num = nmArr[i];
+        let counter = 0;
+
+        while (num % 2 == 0) {
+            counter += 1;
+            num /= 2;
+            if (num === 0) {
+                break;
+            }
+        }
+        countArr.push(counter);
+    }
+    console.log(countArr);
+
+    return nmArr[countArr.indexOf(Math.max(...countArr))];
+}
+
+// might need to sort out absolute value
+const numberInt = (n, m) => {
+    let newArr = [];
+    for (let i = n; i <= m; i++) {
+        newArr.push(i);
+    }
+    return newArr;
+};
+
+
+
+// strongest interval baselog test
+
+function strongestEven(n, m){
+    console.log(n,m);
+    
+    const nmArr = numberInt(n,m);
+    console.log(nmArr);
+    
+    console.log("test baselog6:",getBaseLog(8))
+    
+    for (let i = 0; i < nmArr.length; i++){
+      nmArr[i] = getBaseLog(nmArr[i]);
+    }
+    console.log("test2 nmarr:",nmArr);
+    const maxLog = Math.max(...nmArr)
+     console.log("math.max:",(Math.max(...nmArr)));
+    
+    return Math.pow(2, Math.max(...nmArr));
+    
+  }
+  
+  // logarithm function 
+  
+  const getBaseLog = (y) => {
+    return Math.log(y) / Math.log(2);
+  }
+  
+  
+  // seperate function to create an array of closed interval numbers
+  const numberInt = (n,m) => {
+      let newArr = [];
+      for (let i = n; i <= m; i++){
+        if (i % 2 === 0){
+          newArr.push(i);
+        } else continue;
+      }
+    return newArr;
+  }
