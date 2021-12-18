@@ -276,43 +276,71 @@ const numberInt = (n, m) => {
     return newArr;
 };
 
-
-
 // strongest interval baselog test
 
-function strongestEven(n, m){
-    console.log(n,m);
-    
-    const nmArr = numberInt(n,m);
+function strongestEven(n, m) {
+    console.log(n, m);
+
+    const nmArr = numberInt(n, m);
     console.log(nmArr);
-    
-    console.log("test baselog6:",getBaseLog(8))
-    
-    for (let i = 0; i < nmArr.length; i++){
-      nmArr[i] = getBaseLog(nmArr[i]);
+
+    console.log("test baselog6:", getBaseLog(8));
+
+    for (let i = 0; i < nmArr.length; i++) {
+        nmArr[i] = getBaseLog(nmArr[i]);
     }
-    console.log("test2 nmarr:",nmArr);
-    const maxLog = Math.max(...nmArr)
-     console.log("math.max:",(Math.max(...nmArr)));
-    
+    console.log("test2 nmarr:", nmArr);
+    const maxLog = Math.max(...nmArr);
+    console.log("math.max:", Math.max(...nmArr));
+
     return Math.pow(2, Math.max(...nmArr));
-    
-  }
-  
-  // logarithm function 
-  
-  const getBaseLog = (y) => {
+}
+
+// logarithm function
+
+const getBaseLog = (y) => {
     return Math.log(y) / Math.log(2);
-  }
-  
-  
-  // seperate function to create an array of closed interval numbers
-  const numberInt = (n,m) => {
-      let newArr = [];
-      for (let i = n; i <= m; i++){
-        if (i % 2 === 0){
-          newArr.push(i);
+};
+
+// seperate function to create an array of closed interval numbers
+const numberInt = (n, m) => {
+    let newArr = [];
+    for (let i = n; i <= m; i++) {
+        if (i % 2 === 0) {
+            newArr.push(i);
         } else continue;
-      }
+    }
     return newArr;
-  }
+};
+
+// create a phone number
+
+function createPhoneNumber(numbers) {
+    let first = "";
+    let second = "";
+    let third = "";
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (i <= 2) {
+            first += numbers[i];
+        } else if (i <= 5) {
+            second += numbers[i];
+        } else {
+            third += numbers[i];
+        }
+    }
+
+    return `(${first}) ${second}-${third}`;
+}
+
+// clever
+
+function createPhoneNumber(numbers) {
+    var format = "(xxx) xxx-xxxx";
+
+    for (var i = 0; i < numbers.length; i++) {
+        format = format.replace("x", numbers[i]);
+    }
+
+    return format;
+}
