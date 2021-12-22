@@ -358,40 +358,32 @@ function strongestEven(n, m) {
 // find the odd int https://www.codewars.com/kata/54da5a58ea159efa38000836/train/javascript
 
 function findOdd(a) {
-    // happy coding!
-    // save for later
-    // push numbers into 2d array
-    // do a .length to find the odd number using modulus
-    // return the number that has an odd length
-
-    // sort array
-    const sortA = a.sort();
-    console.log("sortA", sortA);
-
     // count multiple values
     const counts = {};
 
-    sortA.forEach((x) => {
+    a.forEach((x) => {
         console.log("x", x);
         counts[x] = (counts[x] || 0) + 1;
     });
 
-    console.log(counts);
+    console.log("counts:", counts);
 
-    // convert object values to an array
-    const count = Object.values(counts);
+    // convert object values and keys to an array
+    const countVal = Object.values(counts);
+    const countKey = Object.keys(counts);
 
-    console.log(count);
+    console.log("countVal:", countVal);
+    console.log("countKey:", countKey);
 
     // match odd count with key to return the odd int
     let answer = 0;
 
-    count.map((value) => {
+    countVal.map((value) => {
         if (value % 2 !== 0) {
-            answer = counts[value];
+            answer = countKey[countVal.indexOf(value)];
         }
     });
-    console.log("answer", answer);
+    return parseInt(answer);
 }
 
 console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]));
