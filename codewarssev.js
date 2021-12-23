@@ -22,3 +22,27 @@ function squareDigits(num) {
 function disemvowel(str) {
     return str.replace(/[aeiou]/gi, "");
 }
+
+// Will you survive the zombie onslaught?
+
+function zombie_shootout(zombies, range, ammo) {
+    //your code goes here
+
+    // enough ammo enough distance
+    // enough ammo not enough distance
+    // not enough ammo enough distance
+    // not enough ammo not enough distance
+
+    // zombie distance
+    const zomDist = zombies * 0.5;
+
+    if (zomDist < range && zombies <= ammo) {
+        return `You shot all ${zombies} zombies.`;
+    }
+
+    if (zomDist > range && zombies <= ammo) {
+        return `You shot ${range * 2} zombies before being eaten: overwhelmed.`;
+    } else {
+        return `You shot ${ammo} zombies before being eaten: ran out of ammo.`;
+    }
+}
