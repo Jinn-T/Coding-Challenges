@@ -390,4 +390,54 @@ console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]));
 
 // clever solution
 
-const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+// const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+// Duplicate Encoder
+
+// function duplicateEncode(word) {
+//     // duplicates = )
+//     // unique = (
+//     let newArr = [];
+//     let trackArr = [];
+
+//     const charArr = word.toLowerCase().split("");
+//     const len = charArr.length;
+//     console.log(len);
+//     console.log("charArr:", charArr);
+
+//     for (let i = 0; i < len - 1; i++) {
+//         const letter = charArr.shift();
+
+//         if (charArr.includes(letter) || trackArr.includes(letter)) {
+//             newArr.push(")");
+//         } else newArr.push("(");
+//         trackArr.push(letter);
+//     }
+
+//     console.log("trackarr after loop:", trackArr);
+//     console.log("charArr after loop:", charArr);
+//     console.log("test:", trackArr.includes(charArr));
+
+//     trackArr.includes(charArr[0]) ? newArr.push(")") : newArr.push("(");
+
+//     console.log(newArr);
+//     return newArr.join("");
+// }
+
+// console.log(duplicateEncode("Success"));
+
+// clever solution using indexOf
+
+function duplicateEncode(word) {
+    return word
+        .toLowerCase()
+        .split("")
+        .map(function (a, i, w) {
+            console.log("testindexof:", w.indexOf(a) == w.lastIndexOf(a));
+            // if the first indexOf is the same as the last indexOf, we know the element is unique thus returning "("
+            return w.indexOf(a) == w.lastIndexOf(a) ? "(" : ")";
+        })
+        .join("");
+}
+
+console.log(duplicateEncode("Success"));
