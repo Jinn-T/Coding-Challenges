@@ -394,37 +394,37 @@ console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]));
 
 // Duplicate Encoder
 
-// function duplicateEncode(word) {
-//     // duplicates = )
-//     // unique = (
-//     let newArr = [];
-//     let trackArr = [];
+function duplicateEncode(word) {
+    // duplicates = )
+    // unique = (
+    let newArr = [];
+    let trackArr = [];
 
-//     const charArr = word.toLowerCase().split("");
-//     const len = charArr.length;
-//     console.log(len);
-//     console.log("charArr:", charArr);
+    const charArr = word.toLowerCase().split("");
+    const len = charArr.length;
+    console.log(len);
+    console.log("charArr:", charArr);
 
-//     for (let i = 0; i < len - 1; i++) {
-//         const letter = charArr.shift();
+    for (let i = 0; i < len - 1; i++) {
+        const letter = charArr.shift();
 
-//         if (charArr.includes(letter) || trackArr.includes(letter)) {
-//             newArr.push(")");
-//         } else newArr.push("(");
-//         trackArr.push(letter);
-//     }
+        if (charArr.includes(letter) || trackArr.includes(letter)) {
+            newArr.push(")");
+        } else newArr.push("(");
+        trackArr.push(letter);
+    }
 
-//     console.log("trackarr after loop:", trackArr);
-//     console.log("charArr after loop:", charArr);
-//     console.log("test:", trackArr.includes(charArr));
+    console.log("trackarr after loop:", trackArr);
+    console.log("charArr after loop:", charArr);
+    console.log("test:", trackArr.includes(charArr));
 
-//     trackArr.includes(charArr[0]) ? newArr.push(")") : newArr.push("(");
+    trackArr.includes(charArr[0]) ? newArr.push(")") : newArr.push("(");
 
-//     console.log(newArr);
-//     return newArr.join("");
-// }
+    console.log(newArr);
+    return newArr.join("");
+}
 
-// console.log(duplicateEncode("Success"));
+console.log(duplicateEncode("Success"));
 
 // clever solution using indexOf
 
