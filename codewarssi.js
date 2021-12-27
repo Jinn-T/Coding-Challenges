@@ -441,3 +441,36 @@ function duplicateEncode(word) {
 }
 
 console.log(duplicateEncode("Success"));
+
+// take ten minute walk
+
+function isValidWalk(walk) {
+    //insert brilliant code here
+    console.log(walk);
+    let n = 0;
+    let e = 0;
+    let s = 0;
+    let w = 0;
+
+    for (let i = 0; i < walk.length; i++) {
+        if (walk[i] == "n") {
+            n += 1;
+        }
+        if (walk[i] == "e") {
+            e += 1;
+        }
+        if (walk[i] == "s") {
+            s += 1;
+        }
+        if (walk[i] == "w") {
+            w += 1;
+        }
+    }
+
+    console.log("n", n);
+    console.log("e", e);
+    console.log("s", s);
+    console.log("w", w);
+
+    return n === s && e === w && walk.length === 10 ? true : false;
+}
