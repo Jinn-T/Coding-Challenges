@@ -46,3 +46,12 @@ function zombie_shootout(zombies, range, ammo) {
         return `You shot ${ammo} zombies before being eaten: ran out of ammo.`;
     }
 }
+
+// incrementer
+
+function incrementer(nums) {
+    return nums.map((n, index) => {
+        let num = n + index + 1;
+        return num > 9 ? num % 10 : num;
+    });
+}
