@@ -55,3 +55,16 @@ function incrementer(nums) {
         return num > 9 ? num % 10 : num;
     });
 }
+
+// two to one
+
+function longest(s1, s2) {
+    return s1
+        .concat(s2)
+        .replace(/(.)(?=.*\1)/g, "")
+        .split("")
+        .sort()
+        .join("");
+}
+
+// https://stackoverflow.com/questions/19301806/regex-remove-repeated-characters-from-a-string-by-javascript
