@@ -68,3 +68,34 @@ function longest(s1, s2) {
 }
 
 // https://stackoverflow.com/questions/19301806/regex-remove-repeated-characters-from-a-string-by-javascript
+
+// pair zero
+
+// function pairZeros(arr) {
+//     let zCounter = 0;
+//     let newArr = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === 0 && zCounter === 0) {
+//             newArr.push(arr[i]);
+//             zCounter += 1;
+//         } else if (arr[i] === 0 && zCounter === 1) {
+//             zCounter -= 1;
+//         } else {
+//             newArr.push(arr[i]);
+//         }
+//     }
+//     return newArr;
+// }
+
+// clever
+
+function pairZeros(arr) {
+    var seenZero = 0;
+    return arr.filter(function (num) {
+        console.log("seenzero", seenZero);
+        return num != 0 || seenZero++ % 2 == 0;
+    });
+}
+
+console.log(pairZeros([1, 0, 1, 0, 2, 0, 0, 3, 0]));
