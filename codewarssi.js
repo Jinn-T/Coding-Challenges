@@ -474,3 +474,69 @@ function isValidWalk(walk) {
 
     return n === s && e === w && walk.length === 10 ? true : false;
 }
+
+function off(n) {
+    // 0 === off 1 === on
+    // filter and return indexOf 0's to find off switches
+
+    //   0000
+
+    const newArr = new Array(n).fill(0);
+    console.log(newArr);
+
+    let switchCounter = 1;
+
+    for (let i = 0; i < n; i++) {
+        switchCounter++;
+        for (let j = 0; j < n; j++) {
+            if (j * switchCounter >= n) {
+                continue;
+            } else {
+                newArr[j * switchCounter] === 0
+                    ? newArr[j * switchCounter]++
+                    : newArr[j * switchCounter]--;
+            }
+        }
+    }
+
+    console.log("newArr:", newArr);
+
+    newArr[0] = 0;
+
+    return newArr.filter((n) => {
+        if (n === 0) {
+            return newArr.indexOf(n);
+        }
+    });
+}
+
+// off(10) should === 0110100100;
+
+console.log("off", off(10));
+
+// make the deadfish swim
+
+// Return the output array, and ignore all non-op characters
+function parse(data) {
+    const clean = data.replace(/[^isdo]/g, "");
+
+    let num = 0;
+    let deadfish = [];
+
+    clean.split("").map((w) => {
+        if (w === "i") {
+            num++;
+        }
+        if (w === "d") {
+            num--;
+        }
+        if (w === "s") {
+            num = Math.pow(num, 2);
+        }
+        if (w === "o") {
+            deadfish.push(num);
+        }
+    });
+
+    return deadfish;
+}
