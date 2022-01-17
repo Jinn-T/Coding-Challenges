@@ -540,3 +540,57 @@ function parse(data) {
 
     return deadfish;
 }
+
+// tortoise racing
+
+function race(v1, v2, g) {
+    // your code
+
+    let newArr = [0, 0, 0];
+
+    const diffSpeed = v2 - v1; // finding the diff in speed between tortoise
+    const catchHour = g / diffSpeed; // distance / feetperhour diff
+
+    catchHour < 1 ? (newArr[0] = 0) : (newArr[0] = Math.floor(catchHour));
+
+    const catchMin = (catchHour - Math.floor(catchHour)) * 60;
+
+    newArr[1] = Math.floor(catchMin);
+
+    console.log("catchMin:", catchMin);
+    console.log("catchMinArr:", newArr[1]);
+
+    const catchSec = (catchMin - Math.floor(catchMin)) * 60;
+
+    newArr[2] = Math.floor(catchSec);
+
+    console.log(catchSec);
+    console.log(newArr);
+    return newArr;
+}
+
+// clever
+// 3600 seconds in an hour
+
+function race(v1, v2, g) {
+    if (v1 >= v2) {
+        return null; //B will never catch A
+    }
+
+    let newArr = [];
+
+    let diffSpeed = v2 - v1;
+
+    let feetInSeconds = (g * 3600) / diffSpeed;
+
+    newArr[0] = Math.floor(feetInSeconds / 3600);
+    console.log(newArr[0]);
+
+    newArr[1] = Math.floor((feetInSeconds % 3600) / 60);
+    console.log(newArr[1]);
+
+    newArr[2] = Math.floor((feetInSeconds % 3600) % 60);
+    console.log(newArr[2]);
+
+    return newArr;
+}
