@@ -99,3 +99,21 @@ function pairZeros(arr) {
 }
 
 console.log(pairZeros([1, 0, 1, 0, 2, 0, 0, 3, 0]));
+
+// previous multiples of 3
+
+const prevMultOfThree = (n) => {
+    //your solution
+
+    if (n % 3 === 0) {
+        return n;
+    }
+
+    let numTrack = n;
+
+    while (numTrack % 3 !== 0) {
+        numTrack = Math.floor(numTrack / 10); // shaves off last digit
+    }
+
+    return numTrack % 3 !== 0 || numTrack == 0 ? null : numTrack;
+};
