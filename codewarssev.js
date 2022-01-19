@@ -117,3 +117,21 @@ const prevMultOfThree = (n) => {
 
     return numTrack % 3 !== 0 || numTrack == 0 ? null : numTrack;
 };
+
+// java fake binary
+
+// import java.util.regex.Matcher;
+// import java.util.regex.Pattern;
+
+// public class FakeBinary {
+//     public static String fakeBin(String numberString) {
+//       System.out.println(numberString);
+//       String bin1 = numberString.replaceAll("[0-4]", "0");
+//       System.out.println(bin1);
+
+//       String bin2 = bin1.replaceAll("[^0-4]", "1");
+//       System.out.println(bin2);
+
+//         return bin2;
+//     }
+// }
